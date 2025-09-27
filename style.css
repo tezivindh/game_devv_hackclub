@@ -1,0 +1,243 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #2c3e50;
+  font-family: Arial, sans-serif;
+}
+
+#game-container {
+  border: 2px solid #ecf0f1;
+  border-radius: 10px;
+}
+
+#ui {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#health-bar-container {
+  width: 200px;
+  height: 20px;
+  background: #333;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+#health-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #ff0000, #ffff00, #00ff00);
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+#title-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1000;
+}
+
+#title-screen h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#title-screen button {
+  font-size: 24px;
+  padding: 15px 30px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background 0.3s;
+}
+
+#title-screen button:hover {
+  background: #c0392b;
+}
+
+#instructions {
+  max-width: 600px;
+  text-align: center;
+  margin: 20px;
+  line-height: 1.6;
+}
+
+/* Game Over Styles */
+.game-over-button {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  padding: 10px 20px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.game-over-button:hover {
+  background: #c0392b;
+}
+
+/* Message Styles */
+.game-message {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 999;
+  pointer-events: none;
+}
+
+/* Power-up information */
+.power-up-info {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  max-width: 200px;
+}
+
+.power-up-legend {
+  margin: 5px 0;
+}
+
+.power-up-legend span {
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  margin-right: 5px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.shield-icon {
+  background: #00ffff;
+  color: #000;
+}
+.speed-icon {
+  background: #ffff00;
+  color: #000;
+}
+.heal-icon {
+  background: #00ff00;
+  color: #000;
+}
+
+/* Level transition effects */
+.level-transition {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00ff00;
+  font-size: 36px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  z-index: 1001;
+  animation: pulse 2s ease-in-out;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #title-screen h1 {
+    font-size: 36px;
+  }
+
+  #title-screen button {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+
+  #instructions {
+    max-width: 90%;
+    font-size: 14px;
+  }
+
+  #game-container canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .power-up-info {
+    display: none; /* Hide on mobile for space */
+  }
+}
+
+@media (max-width: 480px) {
+  #title-screen h1 {
+    font-size: 28px;
+  }
+
+  #ui {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  #controls {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sacrifice Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+  </head>
+  <body>
+    <div id="title-screen">
+      <h1>🎮 Sacrifice to Survive</h1>
+      <div id="instructions">
+        <p>
+          <strong>Give up your health to gain score and defeat enemies!</strong>
+        </p>
+        <p>• Use <strong>ARROW KEYS</strong> to move</p>
+        <p>• Press <strong>SPACE</strong> to sacrifice 10 health for score</p>
+        <p>
+          • Touch enemies to lose health, or sacrifice health to defeat them
+        </p>
+        <p>
+          • Collect power-ups (costs 15 health): Shield, Speed Boost, Healing
+        </p>
+        <p>• <strong>Level 1:</strong> Reach 500 points to advance</p>
+        <p>• <strong>Level 2:</strong> Face the boss and stronger enemies!</p>
+      </div>
+      <button onclick="startGame()">Start Game</button>
+    </div>
+    <div id="ui" style="display: none">
+      <div>Health: <span id="health">100</span>/100</div>
+      <div>Score: <span id="score">0</span></div>
+      <div>Level: <span id="level">1</span></div>
+      <div id="health-bar-container">
+        <div id="health-bar"></div>
+      </div>
+    </div>
+    <div id="controls" style="display: none">
+      Use ARROW KEYS to move<br />
+      Press SPACE to sacrifice health for score<br />
+      Avoid or sacrifice health to defeat enemies
+    </div>
+    <div id="power-up-info" class="power-up-info" style="display: none">
+      <div><strong>Power-ups (15❤ cost):</strong></div>
+      <div class="power-up-legend"><span class="shield-icon">S</span>Shield (+3 defense)</div>
+      <div class="power-up-legend"><span class="speed-icon">></span>Speed (+50% speed)</div>
+      <div class="power-up-legend"><span class="heal-icon">+</span>Heal (+25 health)</div>
+    </div>
+    <div id="game-container"></div>
+    <script src="game.js"></script>
+  </body>
+</html>
